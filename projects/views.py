@@ -1,17 +1,31 @@
 from django.shortcuts import render
-from projects.models import Project
+from .models import AboutMe, Profile, Category, Skills, Project
 
-def project_index(request):
-        projects = Project.objects.all()        # query: allows to create, retrieve, update, or delete objects in your database.
-        context = {     # Dictionary that is used to send information to my template.
-                'projects': projects            
-        }
-        return render(request, 'project_index.html', context)  # Entries added to the context are available in the template.
-        
+def index(request):
+        about = AboutMe.objects.latest('updated')
+        category = Category.objects.latest('updated')
+        profiles = Profile.objects.filter(about = about),
 
-def project_detail(request, pk):
-        project = Project.objects.get(pk=pk)    # query retrieves the project with primary key.
-        context = {     # Dictionary gets assigned the project
-                'project': project
+        context = {
+                'about': about,
+                'category' : category,
+                'profiles': profiles,
         }
-        return render(request, 'project_detail.html', context)  # Project will pass to render(). 
+
+        return render(request, 'index.html', context)
+
+
+#def project_index(request):
+#        projects = Project.objects.all()        # query: allows to create, retrieve, update, or delete objects in your database.
+#        context = {     # Dictionary that is used to send information to my template.
+#                'projects': projects            
+#        }
+#        return render(request, 'project_index.html', context)  # Entries added to the context are available in the template.
+#        
+#
+#def project_detail(request, pk):
+#        project = Project.objects.get(pk=pk)    # query retrieves the project with primary key.
+#        context = {     # Dictionary gets assigned the project
+#                'project': project
+#        }
+#        return render(request, 'project_detail.html', context)  # Project will pass to render(). 

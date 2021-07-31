@@ -1,0 +1,8 @@
+Django 
+
+Framework Pattern:
+Models --> Templates --> Views
+
+Models: Describe Date.
+Templates: How to Display
+Views: Logic 
