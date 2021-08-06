@@ -3,13 +3,14 @@ from .models import AboutMe, Profile, Category, Skills, Project
 
 def index(request):
         about = AboutMe.objects.latest('updated')
-        category = Category.objects.latest('updated')
-        profiles = Profile.objects.filter(about = about),
+        profiles = Profile.objects.filter(about=about)
+        categories = Category.objects.all()
 
         context = {
                 'about': about,
-                'category' : category,
                 'profiles': profiles,
+                'categories': categories,
+
         }
 
         return render(request, 'index.html', context)

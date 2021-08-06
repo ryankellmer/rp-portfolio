@@ -65,8 +65,8 @@
                         <p class="about__text">{{about.description}}</p>
 
                         <div class="about__social">
-                            <a href="#" class="about__social-icon"><i class='bx bxl-linkedin' ></i></a>
-                            <a href="#" class="about__social-icon"><i class='bx bxl-github' ></i></a>
+                            <a href="http://www.linkedin.com/in/ryan-kellmer-263667200/" class="about__social-icon"><i class='bx bxl-linkedin' ></i></a>
+                            <a href="https://github.com/ryankellmer" class="about__social-icon"><i class='bx bxl-github' ></i></a>
                         </div>
                     </div>
                 </div>
@@ -78,22 +78,16 @@
 
                 <div class="skills__container bd-grid">
                     <div class="skills__box">
-                        <h3 class="skills__subtitle">Development</h3>
-                        <span class="skills__name">Html</span>
-                        <span class="skills__name">Css</span>
-                        <span class="skills__name">Javascript</span>
-                        <span class="skills__name">Scss</span>
-                        <span class="skills__name">React</span>
-                        <span class="skills__name">Vue</span>
-                        
-                        <h3 class="skills__subtitle">Design</h3>
-                        <span class="skills__name">Figma</span>
-                        <span class="skills__name">Adobe XD</span>
-                        <span class="skills__name">Photoshop</span>
+                        {% for category in categories %}
+                            <h3 class="skills__subtitle">{{category.name}}</h3>
+                            {% for skills in category.skills_set.all %}
+                                <span class="skills__name">{{skills.skill_name}}</span>
+                            {% endfor %}
+                        {% endfor %}
                     </div>
 
                     <div class="skills__img">
-                        <img src="{% static 'assets/img/skill.jpg' %}" alt="">
+                        <img src="{% static 'img/skill.jpg' %}" alt="">
                     </div>
                 </div>
             </section>
@@ -107,21 +101,21 @@
                         <img src="{% static 'img/project1.png' %}" alt="">
 
                         <div class="portfolio__link">
-                            <a href="#" class="portfolio__link-name">View details</a>
+                            <a href="https://github.com/ryankellmer/BlueDragonsGame" class="portfolio__link-name">Blue Dragons Game</a>
                         </div>
                     </div>
                     <div class="portfolio__img">
                         <img src="{% static 'img/project2.png' %}" alt="">
 
                         <div class="portfolio__link">
-                            <a href="#" class="portfolio__link-name">View details</a>
+                            <a href="https://github.com/ryankellmer/My-Portfolio" class="portfolio__link-name">Personal Portfolio</a>
                         </div>
                     </div>
                     <div class="portfolio__img">
                         <img src="{% static 'img/project3.png' %}" alt="">
 
                         <div class="portfolio__link">
-                            <a href="#" class="portfolio__link-name">View details</a>
+                            <a href="https://github.com/ryankellmer/Project_5160" class="portfolio__link-name">Decision Tree Classifier</a>
                         </div>
                     </div>
                     <!--
@@ -165,7 +159,7 @@
                         <h3 class="contact__subtitle">Location</h3>
                         <span class="contact__text">Buena Park, CA 90621</span>
                     </div>
-
+                    <!--
                     <form action="" class="contact__form">
                         <div class="contact__inputs">
                             <input type="text" placeholder="Name" class="contact__input">
@@ -176,6 +170,7 @@
 
                         <input type="submit" value="Enter" class="contact__button">
                     </form>
+                    -->
                 </div>
             </section>
         </main>

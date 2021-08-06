@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import AboutMe, Profile, Category, Skills, Project
 
 admin.site.register(AboutMe)
+
 class ProfileInline(admin.TabularInline):
         model = Profile
         extra = 1
