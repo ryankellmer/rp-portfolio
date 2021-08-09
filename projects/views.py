@@ -4,12 +4,16 @@ from .models import AboutMe, Profile, Category, Skills, Project
 def index(request):
         about = AboutMe.objects.latest('updated')
         profiles = Profile.objects.filter(about=about)
+
         categories = Category.objects.all()
+
+        project = Project.objects.all()
 
         context = {
                 'about': about,
                 'profiles': profiles,
                 'categories': categories,
+                'project': project
 
         }
 
