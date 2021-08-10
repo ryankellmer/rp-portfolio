@@ -13,11 +13,15 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#Installation">Installation</a></li>
+        <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
   </ol>
 </details>
+
+
+![PortfolioImg1](https://user-images.githubusercontent.com/61802954/128795999-f2431d86-4196-466a-a272-165783de83ed.jpg)
+
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
